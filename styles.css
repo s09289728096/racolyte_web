@@ -1,0 +1,223 @@
+:root {
+  color-scheme: dark;
+  --bg: #000000;
+  --surface: #0a0a0a;
+  --surface-2: #111111;
+  --line: rgba(255, 255, 255, 0.08);
+  --text: #ededed;
+  --muted: #8a8a8a;
+  --accent: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter Tight", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(900px 600px at 50% 12%, rgba(0, 112, 243, 0.22), transparent 55%),
+    radial-gradient(700px 520px at 82% 18%, rgba(255, 0, 128, 0.18), transparent 58%),
+    radial-gradient(760px 520px at 18% 20%, rgba(245, 166, 35, 0.14), transparent 60%),
+    linear-gradient(180deg, #050505 0%, #000000 40%, #000000 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 12%, rgba(255, 255, 255, 0.09), transparent 18%),
+    radial-gradient(circle at 42% 18%, rgba(0, 112, 243, 0.32), transparent 22%),
+    radial-gradient(circle at 58% 20%, rgba(255, 0, 128, 0.22), transparent 24%),
+    radial-gradient(circle at 49% 30%, rgba(245, 166, 35, 0.18), transparent 28%);
+  filter: blur(42px);
+  opacity: 0.8;
+  animation: drift 18s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 90%);
+  opacity: 0.12;
+}
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px 20px;
+}
+
+.shell {
+  width: min(1080px, 100%);
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(17, 17, 17, 0.88), rgba(10, 10, 10, 0.95));
+  border-radius: 24px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+}
+
+.hero {
+  display: grid;
+  gap: 28px;
+  padding: clamp(28px, 5vw, 56px);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font: 500 12px/1.1 "Geist Mono", Consolas, monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.08);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(3.2rem, 11vw, 7rem);
+  line-height: 0.94;
+  letter-spacing: -0.06em;
+  font-weight: 600;
+}
+
+.copy {
+  display: grid;
+  gap: 14px;
+  max-width: 40rem;
+}
+
+.copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.08rem);
+  line-height: 1.7;
+}
+
+.status {
+  color: var(--text);
+  font: 500 0.92rem/1.2 "Geist Mono", Consolas, monospace;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.banner {
+  margin-top: 4px;
+  border-top: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+}
+
+.banner-inner {
+  padding: 20px;
+  display: grid;
+  gap: 12px;
+}
+
+.banner-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+  font: 500 12px/1.2 "Geist Mono", Consolas, monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.banner-frame {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  background: #0b0b0b;
+}
+
+.banner-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px 20px;
+  color: var(--muted);
+  font-size: 12px;
+  border-top: 1px solid var(--line);
+  background: rgba(0, 0, 0, 0.35);
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  display: block;
+  max-width: min(220px, 60vw);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+footer a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+footer a:hover {
+  border-bottom-color: var(--accent);
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(-1.5%, -1%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(1.5%, 1%, 0) scale(1.06);
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 16px;
+  }
+
+  .shell {
+    border-radius: 18px;
+  }
+
+  footer {
+    flex-direction: column;
+  }
+}
