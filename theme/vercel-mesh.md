@@ -49,11 +49,6 @@
 - The brand isn't a platform / infra / tooling product — meshes on a consumer site read as "trying too hard"
 - Multiple gradient meshes are needed (use one or none, never several)
 - The audience expects warm / human feel
-
-**Resources**
-- Hero banner: `../res/Splash.PNG`
-- Main stylesheet: `../styles.css`
-
 ---
 
 > **Same school — Modern Tool / Builder SaaS**: [`linear`](./linear.md) · [`raycast`](./raycast.md) · [`notion-pre-ai`](./notion-pre-ai.md)  
